@@ -5,6 +5,7 @@ from contextlib import contextmanager
 
 load_dotenv()
 
+DATABASE_URL = os.getenv("DATABASE_URL")
 DATABASE =  os.getenv('DATABASE')
 HOST = os.getenv('HOST')
 USERSERVER = os.getenv('USERSERVER')
@@ -13,11 +14,8 @@ PORT = os.getenv('PORT')
 
 @contextmanager
 def instance_cursor():
-    connection = psycopg2.connect(database=DATABASE,
-                                  host=HOST,
-                                  user=USERSERVER,
-                                  password=PASSWORD,
-                                  port=PORT)
+    connection = psycopg2.connect(database=DATABASE_URL)
+                                  
     cursor = connection.cursor()
     try:
         yield cursor
@@ -51,11 +49,7 @@ def consulta_nome(user):
         return request
     
 def criar_tabela():
-    connection = psycopg2.connect(database=DATABASE,
-                                  host=HOST,
-                                  user=USERSERVER,
-                                  password=PASSWORD,
-                                  port=PORT)
+    connection = psycopg2.connect(database=DATABASE_URL)
     cursor = connection.cursor()
 
     query = '''
@@ -76,11 +70,7 @@ def criar_tabela():
 
 
 def add_registro(nome, user, senha):
-    connection = psycopg2.connect(database=DATABASE,
-                                  host=HOST,
-                                  user=USERSERVER,
-                                  password=PASSWORD,
-                                  port=PORT)
+    connection = psycopg2.connect(database=DATABASE_URL)
     cursor = connection.cursor()
 
     query = f'''
