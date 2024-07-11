@@ -14,7 +14,7 @@ PORT = os.getenv('PORT')
 
 @contextmanager
 def instance_cursor():
-    connection = psycopg2.connect(database=DATABASE_URL)
+    connection = psycopg2.connect(DATABASE_URL)
                                   
     cursor = connection.cursor()
     try:
@@ -49,7 +49,7 @@ def consulta_nome(user):
         return request
     
 def criar_tabela():
-    connection = psycopg2.connect(database=DATABASE_URL)
+    connection = psycopg2.connect(DATABASE_URL)
     cursor = connection.cursor()
 
     query = '''
@@ -70,7 +70,7 @@ def criar_tabela():
 
 
 def add_registro(nome, user, senha):
-    connection = psycopg2.connect(database=DATABASE_URL)
+    connection = psycopg2.connect(DATABASE_URL)
     cursor = connection.cursor()
 
     query = f'''
