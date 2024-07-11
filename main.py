@@ -42,7 +42,7 @@ def login_form(authenticator):
     if authentication_status:
         authenticator.logout('Logout', 'main')
                
-        app_lari()
+        st.write('Dashboard')
         
     elif authentication_status == False:
         st.error('Usuário/senha incorretos.')
@@ -84,60 +84,6 @@ def usuario_form():
     if ciclou_fazer_login:
         st.session_state['clicou_registrar'] = False
         st.rerun()
-
-
-
-from PIL import Image
-
-
-def app_lari():
-
-    
-    st.markdown('# Larissinha, meu amor')
-    st.image('Imagens\imagem_2.jpeg', width= 300)
-    st.markdown('## Você me ama?')
-            
-    escolha = st.radio('Sim ou Não?', ['Diga','SIIIIM 😍', 'NÃO 😢'])
-    
-    if escolha == 'Diga':
-        st.markdown('Bora logo. Me diga. Ama ou não?')
-
-        
-    if escolha == 'SIIIIM 😍':
-
-        st.empty()
-
-        st.markdown('### Você é o amor da minha vida!')
-        st.image('Imagens\imagem_3.jpeg', width= 250)
-
-        st.markdown('### Quero viver todos os meus dias do seu lado!')
-        st.image('Imagens\imagem_4.jpeg', width= 250)
-
-        st.markdown('### Mesmo que você só saiba dormir!')
-        st.image('Imagens\imagem_6.jpeg', width= 250)
-
-        st.markdown('### Vamos ter muito meninos. Uma familia palmeirense!')
-        st.image('Imagens\imagem_7.jpeg', width= 250)
-
-        st.markdown('### Muito palmeirense!')
-        st.image('Imagens\imagem_5.jpeg', width= 250)
-
-        st.markdown('### E dia 04/10/25 será minha esposa, para sempre!')
-        st.image('Imagens\imagem_1.jpeg', width= 250)
-
-    if escolha == 'NÃO 😢':
-        
-        st.empty()
-
-        st.markdown('## Você me ama sim, oxe.')
-        col1, col2 = st.columns([0.3,0.7])
-        with col1:
-            st.video('Imagens\\vid.mp4', format='mp4')
-            st.markdown('Eu sei que você é maluquinha.')
-            st.video('Imagens\\vid_2.mp4', format='mp4')
-            st.markdown('Mas não é tão maluca pra não me amar.')
-            st.video('Imagens\\vid_3.mp4', format='mp4')
-            st.markdown('Amo tu, doidinha do pão.')
 
 
 
